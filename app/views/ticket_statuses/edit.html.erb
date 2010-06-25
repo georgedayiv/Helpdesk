@@ -1,0 +1,16 @@
+<h1>Editing ticket_status</h1>
+
+<% form_for(@ticket_status) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ticket_status %> |
+<%= link_to 'Back', ticket_statuses_path %>

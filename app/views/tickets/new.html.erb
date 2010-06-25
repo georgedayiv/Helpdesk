@@ -1,0 +1,29 @@
+<h1>New ticket</h1>
+
+<% form_for(@ticket) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <b><%= f.label :summary %></b><br />
+    <%= f.text_field :summary %>
+  </p>
+  <p>
+    <b><%= f.label :ticket_type %></b><br />
+    <%= f.text_field :ticket_type %>
+  </p>
+  <p>
+    <b>User </b><br />
+    <% users = User.find(:all) %>
+    <%= f.collection_select :user_id, users, :id, :name %>
+  </p>
+  <p>
+    <b>Status</b><br />
+    <% s = TicketStatus.find(:all) %>
+    <%= f.collection_select :ticket_status_id, s, :id, :status %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', tickets_path %>

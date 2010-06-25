@@ -1,0 +1,24 @@
+<p>
+  <b>Summary:</b>
+  <%=h @ticket.summary %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @ticket.ticket_type %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @user_name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @status %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

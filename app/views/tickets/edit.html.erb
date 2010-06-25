@@ -1,0 +1,30 @@
+<h1>Editing ticket</h1>
+
+<% form_for(@ticket) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :summary %><br />
+    <%= f.text_field :summary %>
+  </p>
+  <p>
+    <%= f.label :ticket_type %><br />
+    <%= f.text_field :ticket_type %>
+  </p>
+  <p>
+  <% u = User.find(:all) %>
+  <%= f.collection_select :user_id, u, :id, :name %>
+  </p>
+<p>
+  <% s = TicketStatus.find(:all) %>
+  <%= f.collection_select :ticket_status_id, s, :id, :status %>
+</p>
+
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ticket %> |
+<%= link_to 'Back', tickets_path %>
