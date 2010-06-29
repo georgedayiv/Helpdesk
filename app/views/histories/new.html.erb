@@ -1,2 +1,17 @@
-<h1>Histories#new</h1>
+<h1>Add New History Event to Ticket <%=h @ticket.id %></h1>
+
+<% form_for([@ticket, @history]) do |f| %>
+  <%=f.error_messages %>
+  
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', ticket_histories_path(@ticket) %>
+
 <p>Find me in app/views/histories/new.html.erb</p>

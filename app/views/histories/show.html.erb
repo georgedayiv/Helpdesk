@@ -1,2 +1,15 @@
-<h1>Histories#show</h1>
+<h2>History item for <%=h @ticket.id %></h2>
+
+<p>
+Body: 
+<%=h @history.body %>
+</p>
+
+<p>
+  Created at: <%=h @history.created_at %><br />
+  Last updated: <%=h @history.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_history_path(@ticket, @history) %> |
+<%= link_to 'Back', ticket_path(@ticket) %>
 <p>Find me in app/views/histories/show.html.erb</p>
