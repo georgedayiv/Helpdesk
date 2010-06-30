@@ -23,6 +23,16 @@ class HistoriesController < ApplicationController
     end  
   end
   
+ def update
+	 @ticket = Ticket.find(params[:ticket_id])
+	 @history = @ticket.histories.build(params[:history])
+	 if @history.update_attributes(params[:history])
+		  redirect_to ticket_history_url(@ticket, @history)
+	 else
+		  render :action => "edit"
+	 end
+ end
+	  
 
   def edit
     @history = @ticket.histories.find(params[:id])

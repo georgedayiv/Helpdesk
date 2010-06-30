@@ -1,7 +1,7 @@
 <h1>Histories#edit</h1>
 
-<% for_for([@ticket, @history]) do |f| %>
-  <%= f.error__messages %>
+<% form_for([@ticket, @history]) do |f| %>
+  <%= f.error_messages %>
     <p>
       Ticket <%= f.label :ticket_id %>
     </p>
@@ -16,4 +16,4 @@
 
 <%= link_to 'Show', ticket_history_path(@ticket, @history) %> |
 <%= link_to 'Back', ticket_histories_path(@ticket) %>
-<p>Find me in app/views/histories/edit.html.erb</p>
+
