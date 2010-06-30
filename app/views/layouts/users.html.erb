@@ -3,16 +3,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Users: <%= controller.action_name %></title>
-    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>Users: <%= @title %></title>
+	<%= render 'layouts/stylesheets' %>
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
-
+	<div class="container">
+		<%= render 'layouts/header' %>
+		<div id="content" class="round">
+			<p style="color: green"><%= flash[:notice] %></p>
+			<%= yield %>
+		</div>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>

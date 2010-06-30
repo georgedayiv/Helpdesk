@@ -1,0 +1,113 @@
+.container {
+	width: 710px;
+}
+
+body {
+	background: #412c84;
+}
+
+#header {
+	padding-top: 20px;
+}
+
+#header img {
+	padding: 1px;
+	background: #200772;
+}
+
+#content {
+	margin-top: 1em;
+	font-size: 120%;
+	padding: 20px;
+	background: #FFD073;
+}
+
+#content h1 {
+	color: #200772;
+}
+
+/* Links */
+
+#content a {
+	color: #200772;
+	text-decoration: none;
+}
+
+#content a:hover{
+	color: #6A48D7;
+	text-decoration: underline;
+}
+
+#content a:visited {
+	color: #006363;
+}
+
+#header a {
+	color: #FFAA00;
+	text-decoration: none;
+}
+
+#header a:hover{
+	color: #BF8F30;
+	text-decoration: underline;
+}
+
+#header a:visited {
+	color: #A66F00;
+}
+
+#footer .navigation {
+	float: none;
+}
+
+#footer {
+	background: #FFD073;
+	text-align: center;
+	margin-top: 10px;
+	width: 710px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Navigation */
+
+.navigation {
+	float: right;
+}
+
+.navigation{
+	/*background-color: #FFBF40; */
+	padding: 0 0.7em;
+	white-space: nowrap;
+}
+
+ul.navigation {
+	margin: 0;
+}
+
+.navigation li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0.2em 0;
+}
+
+/* Round corners */
+.round {
+	-moz-border-radius: 	10px;
+	-webkit-border-radius: 	10px;
+	border-radius:				10px;
+}
+
+
+
+
+
+
+/*
+http://colorschemedesigner.com/
+RGB: FFAA00
+Hue: 60
+Angle: 30
+Triad
+http://colorschemedesigner.com/#0X31Tw0w0w0w0
+*/
