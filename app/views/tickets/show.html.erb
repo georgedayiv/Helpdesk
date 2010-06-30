@@ -1,3 +1,5 @@
+<h2>Ticket: <%=h @ticket.id %></h2>
+
 <p>
   <b>Summary:</b>
   <%=h @ticket.summary %>
@@ -18,7 +20,15 @@
   <%= @status %>
 </p>
 
-
+<h3>History</h3>
+<%= link_to 'Add', new_ticket_history_path(@ticket, @history) %><br />
+<% @ticket.histories.each do |history| %>
+<p>
+<%=h history.body %>  |
+<%= link_to 'Edit', edit_ticket_history_path(@ticket, history) %> |
+<%= link_to 'Destroy', @history, :confirm => 'Are you sure?', :method => :delete %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
