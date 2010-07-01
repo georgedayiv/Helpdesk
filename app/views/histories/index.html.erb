@@ -10,8 +10,7 @@
 		<td><%=h history.body %></td>
 		<td><%= link_to 'Show', ticket_history_path(@ticket, history) %></td>
 		<td><%= link_to 'Edit', edit_ticket_history_path(@ticket, history) %></td>
-		<td><%= link_to 'Destory', ticket_history_path(@ticket, history), 
-			:confirm => "Are you sure?', :method => :delete %></td>
+		<td><%= link_to 'Destory', ticket_history_path(@ticket, history), :confirm => "Are you sure?", :method => :delete %></td>
 	</tr>
 <% end %>
 

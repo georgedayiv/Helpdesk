@@ -1,6 +1,10 @@
 class TicketStatusesController < ApplicationController
   # GET /ticket_statuses
   # GET /ticket_statuses.xml
+  before_filter :find_ticket_status,
+  :only => [:show, :edit, :update, :destroy]
+  
+  
   def index
     @ticket_statuses = TicketStatus.all
 
@@ -13,8 +17,7 @@ class TicketStatusesController < ApplicationController
   # GET /ticket_statuses/1
   # GET /ticket_statuses/1.xml
   def show
-    @ticket_status = TicketStatus.find(params[:id])
-
+   
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @ticket_status }
@@ -34,7 +37,7 @@ class TicketStatusesController < ApplicationController
 
   # GET /ticket_statuses/1/edit
   def edit
-    @ticket_status = TicketStatus.find(params[:id])
+   
   end
 
   # POST /ticket_statuses
@@ -57,8 +60,6 @@ class TicketStatusesController < ApplicationController
   # PUT /ticket_statuses/1
   # PUT /ticket_statuses/1.xml
   def update
-    @ticket_status = TicketStatus.find(params[:id])
-
     respond_to do |format|
       if @ticket_status.update_attributes(params[:ticket_status])
         flash[:notice] = 'TicketStatus was successfully updated.'
@@ -74,12 +75,16 @@ class TicketStatusesController < ApplicationController
   # DELETE /ticket_statuses/1
   # DELETE /ticket_statuses/1.xml
   def destroy
-    @ticket_status = TicketStatus.find(params[:id])
     @ticket_status.destroy
-
     respond_to do |format|
       format.html { redirect_to(ticket_statuses_url) }
       format.xml  { head :ok }
     end
   end
+  
+  def find_ticket_status
+	  @ticket_status = TicketStatus.find(params[:id])
+  end
+  
+  
 end

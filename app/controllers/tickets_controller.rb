@@ -48,7 +48,7 @@ class TicketsController < ApplicationController
     respond_to do |format|
       if @ticket.save
         flash[:notice] = 'Ticket was successfully created.'
-        format.html { redirect_to(@ticket) }
+        format.html { redirect_to(tickets_url) }
         format.xml  { render :xml => @ticket, :status => :created, :location => @ticket }
       else
         format.html { render :action => "new" }

@@ -26,7 +26,8 @@
 <p>
 <%=h history.body %>  |
 <%= link_to 'Edit', edit_ticket_history_path(@ticket, history) %> |
-<%= link_to 'Destroy', @history, :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Destory', ticket_history_path(@ticket, history), 
+			:confirm => "Are you sure?", :method => :delete %>
 </p>
 <% end %>
 
