@@ -1,5 +1,5 @@
 .container {
-	width: 710px;
+	width: 1200px;
 }
 
 body {
@@ -126,6 +126,16 @@ td.sidebar {
 div.field, div.actions {
   margin-bottom: 5px;
 }
+
+/* Ticket pages */
+
+table.tickets, td {
+  border-collapse:collapse;
+  border: 1px solid black;
+}
+
+
+
 
 /*
 http://colorschemedesigner.com/

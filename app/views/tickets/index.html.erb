@@ -1,12 +1,15 @@
 <h1>Listing tickets</h1>
 
-<table>
+<table class="tickets">
   <tr>
     <th>Ticket ID</th>
     <th>Summary</th>
     <th>Type</th>
     <th>User</th>
     <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @tickets.each do |ticket| %>
@@ -21,9 +24,9 @@
     <%  @tid = TicketStatus.find(@ts_id).status %>
     <td><%=h @tid %></td>
     
-    <td><%= link_to 'Show', ticket %></td>
-    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-    <td><%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="buttons"><%= link_to 'Show', ticket %></td>
+    <td class="buttons"><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td class="buttons"><%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
