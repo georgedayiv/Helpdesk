@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
 	
+#Basic user attributes  	
 	before(:each) do
 		@attr = { 
 			:name => "Frank", 
@@ -53,7 +54,10 @@ describe User do
 		user_with_duplicate_email = User.new(@attr)
 		user_with_duplicate_email.should_not be_valid
 	end
+#End basic user attributes
 	
+	
+#Password related stuff
 	describe "password validations" do
 
 		it "should require a password" do
@@ -77,7 +81,7 @@ describe User do
 		      hash = @attr.merge(:password => long, :password_confirmation => long)
 		      User.new(hash).should_not be_valid
 		end
-        end
+ end
 	
 	describe "password encryption" do
 		
@@ -94,7 +98,6 @@ describe User do
 		end
 		
 		describe "has_password? method" do
-		
 			it "should be true if the passwords match" do
 				@user.has_password?(@attr[:password]).should be_true
 			end
@@ -102,11 +105,9 @@ describe User do
 			it "should be false if the passwords don't match" do
 				@user.has_password?("Finklestien").should be_false
 			end
-		
 		end
 		
 		describe "authenticate method" do
-		
 			it "should return nil on email/password mismatch" do
 				wrong_password_user = User.authenticate(@attr[:email], "wrong@email.address")
 				wrong_password_user.should be_nil
@@ -121,14 +122,32 @@ describe User do
 				matching_user = User.authenticate(@attr[:email], @attr[:password])
 				matching_user.should == @user
 			end
-			
-			
-			
 		end
 		
-		
-	
 	end
+#End password related stuff
+
+#Session/Authentication related stuff
+  describe "remember me" do
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "should have a remember token" do
+      @user.should respond_to(:remember_token)
+    end
+    
+    it "should have a remember_me! method" do
+      @user.should respond_to(:remember_me!)
+    end
+    
+    it "should set the remember token" do
+      @user.remember_me!
+      @user.remember_token.should_not be_nil
+    end      
+  end
+  
+
 	
   
 end

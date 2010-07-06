@@ -17,7 +17,7 @@ describe SessionsController do
 
   describe "POST 'create'" do
   
-    describe "invalid signin" do
+    describe "invalid sign in" do
     
       before(:each) do
         @attr = {:email => "blahfucker@bullshitadress.com", :password => "password" }
@@ -47,6 +47,8 @@ describe SessionsController do
       it "should sign the user in" do
         post :create, :session => @attr
         #fill in with tests for a signed in user.
+        controller.current_user.should == @user 
+        controller.should_be signed_in        
       end
       
       it "should redirect to show the user show page" do
@@ -55,11 +57,19 @@ describe SessionsController do
       end
       
     end
-
-
-
-
-  end
   
+    describe "DELETE 'destroy'" do
+    
+      it "should sign out the user" do
+        test_sign_in(Factory(:user))
+        controller.should be_signed_in
+        delete :destroy
+        controller.should_not be_signed_in
+        response.should redirect_to(root_path)
+      end      
+    
+    end
+    
+  end
   
 end
