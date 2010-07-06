@@ -129,12 +129,19 @@ div.field, div.actions {
 
 /* Ticket pages */
 
-table.tickets, td {
-  border-collapse:collapse;
-  border: 1px solid black;
+#tickets th {
+ color: #200772;
+ border-bottom: 2px solid #6A48D7;
 }
 
+#tickets td {
+  padding: 9px 8px 0px 8px;
+  border-bottom: 1px solid #BF8F30
+}
 
+#tickets tbody tr:hover td {
+  color: #006363
+}
 
 
 /*
