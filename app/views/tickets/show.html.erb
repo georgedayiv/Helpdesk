@@ -23,14 +23,24 @@
 
 <h3>History</h3>
 <%= link_to 'Add', new_ticket_history_path(@ticket, @history) %><br />
-<% @ticket.histories.each do |history| %>
-<p>
-<%=h history.body %>  |
-<%= link_to 'Edit', edit_ticket_history_path(@ticket, history) %> |
-<%= link_to 'Destory', ticket_history_path(@ticket, history), 
-			:confirm => "Are you sure?", :method => :delete %>
-</p>
-<% end %>
-
+<table  id="tickets">
+  <tr>
+    <th>Body</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @ticket.histories.each do |history| %>
+  <tr>
+    <td><%=h history.body %></td>
+    <td><%=h history.created_at %></td>
+    <td><%=h history.updated_at %></td>
+    <td><%= link_to 'Edit', edit_ticket_history_path(@ticket, history) %></td>
+    <td><%= link_to 'Destory', ticket_history_path(@ticket, history), 
+      :confirm => "Are you sure?", :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
