@@ -5,6 +5,10 @@
     <p>
       Ticket <%= f.label :ticket_id %>
     </p>
+    <p> Associated Employee
+    <% employees = Employee.find(:all)%>
+    <%= f.collection_select(:employee_id, employees, :id, :name, :include_blank => true )%>
+    </p>
     <p>
       <%= f.label :body %><br />
       <%= f. text_area :body %>

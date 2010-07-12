@@ -12,7 +12,13 @@
     <%= f.text_field :ticket_type %>
   </p>
   <p>
-    <b>User </b><br />
+    <b>Associated Employee:</b><br />
+    <% employees = Employee.find(:all)%>
+    <%= f.collection_select :employee_id, employees, :id, :name %>
+  </p>
+  
+  <p>
+    <b>Assigned to: </b><br />
     <% users = User.find(:all) %>
     <%= f.collection_select :user_id, users, :id, :name %>
   </p>

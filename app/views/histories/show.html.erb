@@ -4,7 +4,12 @@
 	History ID:
 	<%=h @history.id %>
 </p>
-
+<% if @employee_name != nil %>
+  <p>
+    <b>Associated Employee:</b><br />
+    <%=h @employee_name %>
+  </p>
+<% end %>
 <p>
 Body: 
 <%=h @history.body %>

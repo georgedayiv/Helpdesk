@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20100710023827
+#
+# Table name: employees
+#
+#  id         :integer         not null, primary key
+#  login      :string(255)
+#  name       :string(255)
+#  email      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  login: 
+  name: 
+  email: MyString
+
+two:
+  login: 
+  name: 
+  email: MyString

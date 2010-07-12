@@ -2,6 +2,11 @@
 
 <% form_for(@ticket) do |f| %>
   <%= f.error_messages %>
+  <% u = User.find(:all) %>
+<h3>Assigned Tech:</h3>
+  <p>
+  <%= f.collection_select :user_id, u, :id, :name %>
+  </p>
 
   <p>
     <%= f.label :summary %><br />
@@ -12,10 +17,13 @@
     <%= f.text_field :ticket_type %>
   </p>
   <p>
-  <% u = User.find(:all) %>
-  <%= f.collection_select :user_id, u, :id, :name %>
+    <b>Associated Employee:</b><br />
+    <% employees = Employee.find(:all)%>
+    <%= f.collection_select(:employee_id, employees, :id, :name, :include_blank => true )%>
   </p>
+
 <p>
+  <b>Ticket Status:</b><br />
   <% s = TicketStatus.find(:all) %>
   <%= f.collection_select :ticket_status_id, s, :id, :status %>
 </p>

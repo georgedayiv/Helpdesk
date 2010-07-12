@@ -1,4 +1,6 @@
 <h2>Ticket: <%=h @ticket.id %></h2>
+<h3>Tech:   <%=h @user_name %></h3>
+</p></h3>
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
 <p>
@@ -11,10 +13,14 @@
   <%=h @ticket.ticket_type %>
 </p>
 
+
+
+<% if @employee_name != nil %>
 <p>
-  <b>User:</b>
-  <%=h @user_name %>
+  <b>Employee:</b>
+  <%=h @employee_name %>
 </p>
+<% end %>
 
 <p>
   <b>Status:</b>
@@ -33,7 +39,7 @@
   </tr>
   <% @ticket.histories.each do |history| %>
   <tr>
-    <td><%=h history.body %></td>
+    <td><%= link_to history.body, ticket_history_path(@ticket, history) %></td>
     <td><%=h history.created_at %></td>
     <td><%=h history.updated_at %></td>
     <td><%= link_to 'Edit', edit_ticket_history_path(@ticket, history) %></td>

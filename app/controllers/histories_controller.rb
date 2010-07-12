@@ -7,6 +7,7 @@ class HistoriesController < ApplicationController
 
 	def show
 		@history = @ticket.histories.find(params[:id])
+		find_employee
 	end
 
 	def new
@@ -25,7 +26,7 @@ class HistoriesController < ApplicationController
 	
  def update
 	 @ticket = Ticket.find(params[:ticket_id])
-	 @history = @ticket.histories.build(params[:history])
+	 @history = History.find(params[:id])
 	 if @history.update_attributes(params[:history])
 			redirect_to ticket_history_url(@ticket, @history)
 	 else
@@ -50,5 +51,10 @@ class HistoriesController < ApplicationController
 	def find_ticket
 	@ticket = Ticket.find(params[:ticket_id])
 	end  
+	
+	def find_employee
+	    @employee_name = Employee.find(History.find(params[:id]).employee_id).name unless History.find(params[:id]).employee_id.nil?
+  end
+
 	
 end
