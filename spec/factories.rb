@@ -6,3 +6,8 @@ Factory.define :user do |user|
 	user.password_confirmation	"jinlai"
 	user.login			"gday"
 end
+
+Factory.define :ticket_queue do |ticket_queue|
+  ticket_queue.queue_name "George"
+end
+

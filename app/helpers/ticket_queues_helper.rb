@@ -1,0 +1,2 @@
+module TicketQueuesHelper
+end
