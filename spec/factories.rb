@@ -11,3 +11,12 @@ Factory.define :ticket_queue do |ticket_queue|
   ticket_queue.queue_name "George"
 end
 
+Factory.define :ticket do |ticket|
+  ticket.summary            "blah ticket summary"
+  ticket.ticket_type               "test"
+  ticket.user_id            1
+  ticket.ticket_status_id   1
+  ticket.employee_id        1
+  ticket.ticket_queue_id    1
+end
+

@@ -1,3 +1,17 @@
 <h2><%= h @ticket_queue.queue_name %></h2>
 
+<p> blah...</p>
+
+  <p>
+    <ul>
+    <% for user in User.find(@users)%>
+      <li>
+      <%= user.name %>
+      </li>
+    <% end %>
+    </ul>
+  </p>
+
+<%= link_to 'Edit', edit_ticket_queue_path(@ticket_queue) %>
+
 

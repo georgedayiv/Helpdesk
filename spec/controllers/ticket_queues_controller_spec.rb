@@ -28,4 +28,10 @@ describe TicketQueuesController do
     it "should not list tickets not in the queue"
     
   end    
+  
+  describe "GET 'new'"
+  
+  describe "POST 'create'"
+  
+  
 end

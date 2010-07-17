@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100713013422) do
+ActiveRecord::Schema.define(:version => 20100716231225) do
 
   create_table "employees", :force => true do |t|
     t.string   "login"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20100713013422) do
     t.string   "queue_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "ticket_queues_users", :id => false, :force => true do |t|
+    t.integer "ticket_queue_id"
+    t.integer "user_id"
   end
 
   create_table "ticket_statuses", :force => true do |t|

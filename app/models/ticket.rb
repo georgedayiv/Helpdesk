@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100710023827
+# Schema version: 20100713013422
 #
 # Table name: tickets
 #
@@ -11,6 +11,7 @@
 #  user_id          :integer
 #  ticket_status_id :integer
 #  employee_id      :integer
+#  ticket_queue_id  :integer
 #
 
 class Ticket < ActiveRecord::Base
@@ -19,4 +20,5 @@ class Ticket < ActiveRecord::Base
   belongs_to :ticket_status
   belongs_to :employee, :class_name => "Employee"
   has_many :histories
+  
 end

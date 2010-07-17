@@ -26,6 +26,7 @@ validates_length_of :login, :minimum => 4
 validates_format_of :email, :with => EmailRegex
 validates_uniqueness_of :email, :case_sensitive => false
 has_many :tickets, :class_name => "User", :foreign_key => "user_id"
+has_and_belongs_to_many :ticket_queues, :join_table => "ticket_queues_users"
 
 before_save :encrypt_password
 

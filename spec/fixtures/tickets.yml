@@ -1,3 +1,19 @@
+# == Schema Information
+# Schema version: 20100713013422
+#
+# Table name: tickets
+#
+#  id               :integer         not null, primary key
+#  summary          :string(255)
+#  ticket_type      :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  user_id          :integer
+#  ticket_status_id :integer
+#  employee_id      :integer
+#  ticket_queue_id  :integer
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the
