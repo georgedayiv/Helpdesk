@@ -33,5 +33,6 @@ describe TicketQueuesController do
   
   describe "POST 'create'"
   
-  
+  describe "GET 'index'"
+   
 end

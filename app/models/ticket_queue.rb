@@ -12,5 +12,5 @@
 class TicketQueue < ActiveRecord::Base
   validates_presence_of :queue_name
   has_and_belongs_to_many :users, :join_table => "ticket_queues_users"
-  
+  has_many :tickets
 end

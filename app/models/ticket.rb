@@ -20,5 +20,5 @@ class Ticket < ActiveRecord::Base
   belongs_to :ticket_status
   belongs_to :employee, :class_name => "Employee"
   has_many :histories
-  
+  belongs_to :ticket_queue 
 end
