@@ -3,8 +3,8 @@ Feature: Ticket Queues
   As a Helpdesk tech
   I want a list of tickets I am responsible for
   
-  Scenario: My queue is assigned a new ticket
-    Given Shawn assigns my queue a new ticket
-    When I go to my ticket queue
-    Then I should see the ticket
+  Scenario: My queue is assigned ticket number 1
+    Given a new ticket
+    When Shawn assigns the ticket to my queue
+    Then the ticket should apppear in my queue
     
