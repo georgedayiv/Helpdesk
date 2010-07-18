@@ -1,24 +1,20 @@
-<h2>Edit <%=h @ticket_queue.queue_name %></h2>
+<h1>Create new Ticket Queue</h1>
 
-<% form_for @ticket_queue do |f| %>
-
+<% form_for(@ticket_queue) do |f|%>
+  <%= f.error_messages %>
   <p>
     <%= f.label :queue_name %>
     <%= f.text_field :queue_name %>
   </p>
-  
   <p>
-    <% for user in User.find(:all)%>
+    <% for user in User.find(:all) do %>
       <%= check_box_tag "ticket_queue[user_ids][]", user.id, @ticket_queue.users.include?(user) %>
       <%= user.name %>
     <% end %>
   </p>
-  
   <p>
     <%= f.submit %>
   </p>
-
 <% end %>
-<%= link_to 'Show', @ticket_queue %> |
-<%= link_to 'Back', ticket_queues_path%>
-  
+
+<%= link_to 'Back', ticket_queues_path %>

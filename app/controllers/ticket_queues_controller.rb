@@ -1,5 +1,34 @@
 class TicketQueuesController < ApplicationController
 
+  def index
+    @ticket_queues = TicketQueue.all  
+  end
+  
+  def new
+    @ticket_queue = TicketQueue.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @ticket_queue }
+    end
+  end
+  
+  def create
+    @ticket_queue = TicketQueue.new(params[:ticket_queue])
+    
+    respond_to do |format|
+      if @ticket_queue.save
+        flash[:notice] = "New Queue created successfully!"
+        format.html { redirect_to(@ticket_queue)}
+      else
+        format.html { render :action => "new"}
+        format.xml  { render :xml => @ticket_queue.errors, :status => :unprocessable_entity }
+      end
+    end
+       
+  end
+  
+  
+
   # GET /ticketqueues/1
   # GET /ticketqueues/1.xml
   def show

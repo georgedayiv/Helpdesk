@@ -1,0 +1,27 @@
+<h1>Ticket Queues</h1>
+
+<table id="tickets">
+  <tr>
+    <th>Queue ID</th>
+    <th>Queue Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  <% @ticket_queues.each do |queue|%>
+<tr>
+    <td>
+      <%=h queue.id %>
+    </td>
+    <td>
+      <%= queue.queue_name%>
+    </td>
+    <td class="buttons"><%= link_to 'Show', queue %></td>
+    <td class="buttons"><%= link_to 'Edit', edit_ticket_queue_path(queue) %></td>
+    <td class="buttons"><%= link_to 'Destroy', queue, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+  <% end%>
+</table>
+
+<%= link_to 'New Queue', new_ticket_queue_path%> | <%= link_to 'Back', root_path%>
