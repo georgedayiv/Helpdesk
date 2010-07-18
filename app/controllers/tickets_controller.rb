@@ -90,7 +90,13 @@ private
 def find_name
   @user_name = User.find(Ticket.find(params[:id]).user_id).name
   @employee_name = Employee.find(Ticket.find(params[:id]).employee_id).name unless Ticket.find(params[:id]).employee_id.nil?
-  @ticket_queue = TicketQueue.find(Ticket.find(params[:id]).ticket_queue_id).queue_name 
+  
+  if Ticket.find(params[:id]).ticket_queue_id != nil
+    @ticket_queue = TicketQueue.find(Ticket.find(params[:id]).ticket_queue_id).queue_name
+  else
+    @ticket_queue = nil
+  end
+     
 end
 
 

@@ -1,6 +1,11 @@
 <h2>Ticket: <%=h @ticket.id %></h2>
 <h3>Tech:   <%=h @user_name %></h3>
-<h3>Queue: <%= link_to @ticket_queue, ticket_queue_path(TicketQueue.find_by_queue_name(@ticket_queue))%></h3>
+<h3>Queue: 
+  <% if @ticket_queue != nil %>
+  <%= link_to @ticket_queue, ticket_queue_path(TicketQueue.find_by_queue_name(@ticket_queue))%>
+  <% end %>
+  </h3>
+  
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
 <p>

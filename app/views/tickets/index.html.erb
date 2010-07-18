@@ -7,7 +7,7 @@
     <th>Type</th>
     <th>User</th>
     <th>Status</th>
-    <th></th>
+    <th>Queue </th>
     <th></th>
     <th></th>
   </tr>
@@ -15,16 +15,20 @@
 <% @tickets.each do |ticket| %>
   <tr>
     <td><%=h ticket.id %></td>
-    <td><%=h ticket.summary %></td>
+    <td><%= link_to ticket.summary, ticket_path(ticket) %></td>
     <td><%=h ticket.ticket_type %></td>
     <% @tuid = ticket.user_id %>
     <% @user_name = User.find(@tuid).name %>
     <td><%=h @user_name %></td>
     <% @ts_id = ticket.ticket_status_id %>
     <%  @tid = TicketStatus.find(@ts_id).status %>
-    <td><%=h @tid %></td>
-    
-    <td class="buttons"><%= link_to 'Show', ticket %></td>
+    <td><%=h @tid %></td>    
+    <% if queue_name(ticket) != nil%>
+      <td><%= link_to queue_name(ticket), ticket_queue_path(TicketQueue.find_by_queue_name(queue_name(ticket)))%></td>
+    <% else %>
+      <td>None</td>
+    <% end %>      
+        
     <td class="buttons"><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
     <td class="buttons"><%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

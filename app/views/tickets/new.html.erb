@@ -2,7 +2,7 @@
 
 <% form_for(@ticket) do |f| %>
   <%= f.error_messages %>
-
+  <% q = TicketQueue.find(:all)%>
   <p>
     <b><%= f.label :summary %></b><br />
     <%= f.text_field :summary %>
@@ -11,6 +11,12 @@
     <b><%= f.label :ticket_type %></b><br />
     <%= f.text_field :ticket_type %>
   </p>
+  <h3>Assigned Queue:</h3>
+<p>
+  <%= f.collection_select :ticket_queue_id, q, :id, :queue_name %>
+</p>
+
+  
   <p>
     <b>Associated Employee:</b><br />
     <% employees = Employee.find(:all)%>

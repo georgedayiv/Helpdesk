@@ -60,5 +60,16 @@ class TicketQueuesController < ApplicationController
       end
      end     
   end
+
+  def destroy
+    @ticket_queue = TicketQueue.find(params[:id])
+    @ticket_queue.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to(ticket_queues_path) }
+      format.xml  { head :ok }
+    end  
+  end
+  
   
 end

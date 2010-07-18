@@ -15,7 +15,7 @@
       <th>Last Updated</th>
       <th></th>
     </tr>
-    <% @ticket_queue.tickets.each do |ticket|%>
+    <% open_tickets(@ticket_queue).each do |ticket|%>
       <tr>
         <td><%=h ticket.id %></td>
         <td><%= link_to ticket.summary, ticket_queue_ticket_path(@ticket_queue, ticket)%></td>

@@ -1,4 +1,4 @@
-<h1>Listing users</h1>
+<h1>Techs</h1>
 
 <table id="tickets">
   <tr>
@@ -10,10 +10,10 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user.login %></td>
-    <td><%=h user.name %></td>
-    <td><%=h user.email %></td>
-    <td><%= gravatar_for user %></td>
+    <td><%= link_to user.login, user_path(user) %></td>
+    <td><%= link_to user.name, user_path(user) %></td>
+    <td><%= link_to user.email, user_path(user) %></td>
+    <td><%= link_to (gravatar_for user), user_path(user) %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
