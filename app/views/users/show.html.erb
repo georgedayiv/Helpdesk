@@ -32,6 +32,16 @@
   <%=h @user.password %>
 </p>
 
-
+<h3> Tickets </h3>
+<ul>
+  <% @user.ticket_queues.each do |queue|%>
+  <li><%= link_to queue.queue_name, ticket_queue_path(queue) %></li>
+    <ol>
+      <% queue.tickets.each do |ticket|%>
+      <li><%= link_to ticket.summary, ticket_path(ticket)%></li>
+    <% end %>
+    </ol>
+  <% end %>
+</ul>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

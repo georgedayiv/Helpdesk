@@ -1,17 +1,32 @@
 <h2><%= h @ticket_queue.queue_name %></h2>
-
-<p> blah...</p>
-
-  <p>
-    <ul>
+ <h4>Members:</h4>
+ <ul> 
     <% for user in User.find(@users)%>
-      <li>
-      <%= user.name %>
-      </li>
+     <li> <%= link_to user.name, user_path(user) %></li>
     <% end %>
-    </ul>
-  </p>
+</ul>    
 
-<%= link_to 'Edit', edit_ticket_queue_path(@ticket_queue) %> | <%= link_to 'Back', root_path%>
+<h3>Tickets</h3>
+  <table id="tickets">
+    <tr>
+      <th>ID</th>
+      <th>Summary</th>
+      <th>Created</th>
+      <th>Last Updated</th>
+      <th></th>
+    </tr>
+    <% @ticket_queue.tickets.each do |ticket|%>
+      <tr>
+        <td><%=h ticket.id %></td>
+        <td><%= link_to ticket.summary, ticket_queue_ticket_path(@ticket_queue, ticket)%></td>
+        <td><%=h ticket.created_at %></td>
+        <td><%=h ticket.updated_at %></td>
+        <td><%= link_to "Edit", edit_ticket_queue_ticket_path(@ticket_queue, ticket)%></td>
+      </tr>
+    <% end %>
+    
+  </table>
+    
+<%= link_to 'Edit', edit_ticket_queue_path(@ticket_queue) %> | <%= link_to 'Back', ticket_queues_path%>
 
 

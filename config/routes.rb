@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :employees
 
   map.resources :ticket_statuses
-  map.resources :ticket_queues
+  map.resources :ticket_queues, :has_many => :tickets
   map.resources :tickets, :has_many => :histories
 
   map.resources :users

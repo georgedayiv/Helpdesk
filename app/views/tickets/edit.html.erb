@@ -3,10 +3,16 @@
 <% form_for(@ticket) do |f| %>
   <%= f.error_messages %>
   <% u = User.find(:all) %>
+  <% q = TicketQueue.find(:all)%>
 <h3>Assigned Tech:</h3>
   <p>
   <%= f.collection_select :user_id, u, :id, :name %>
   </p>
+<h3>Assigned Queue:</h3>
+<p>
+  <%= f.collection_select :ticket_queue_id, q, :id, :queue_name %>
+</p>
+
 
   <p>
     <%= f.label :summary %><br />
