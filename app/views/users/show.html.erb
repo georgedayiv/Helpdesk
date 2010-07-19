@@ -32,16 +32,24 @@
   <%=h @user.password %>
 </p>
 
-<h3> Tickets </h3>
-<ul>
-  <% @user.ticket_queues.each do |queue|%>
-  <li><%= link_to queue.queue_name, ticket_queue_path(queue) %></li>
-    <ol>
-      <% queue.tickets.each do |ticket|%>
-      <li><%= link_to ticket.summary, ticket_path(ticket)%></li>
-    <% end %>
-    </ol>
-  <% end %>
-</ul>
+<h3> Open Tickets Tickets </h3>
+<% @user.ticket_queues.each do |queue|%>
+  <h4><%= link_to queue.queue_name, ticket_queue_path(queue) %></h4>
+  <table id="tickets">
+    <tr>
+      <th>Ticket summary</th>
+      <th>Ticket Last Modified</th>
+      <th></th>
+    </tr>
+    <% open_tickets(queue).each do |ticket|%>
+    <tr>
+     <td><%= link_to ticket.summary, ticket_path(ticket)%></td>
+     <td><%= ticket.updated_at %></td>
+     <td><%= link_to 'Edit', edit_ticket_path(ticket)%></td>
+    </tr>
+    <% end %>     
+  </table>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -11,4 +11,15 @@ def title
 	end
 end
 
+#Find open tickets for a ticket queue
+  def open_tickets(queue)
+    queue.tickets.find(:all, :conditions => "ticket_status_id ='1'")
+  end
+ 
+ #find closed tickets for a ticket queue 
+  def closed_tickets(queue)
+    queue.tickets.find(:all, :conditions => "ticket_status_id ='2'")
+  end
+
+
 end
