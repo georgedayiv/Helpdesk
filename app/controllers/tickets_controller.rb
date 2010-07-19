@@ -85,6 +85,10 @@ class TicketsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+ 
+end
+
 
 private
 def find_name
@@ -107,4 +111,3 @@ end
 
 
 
-end

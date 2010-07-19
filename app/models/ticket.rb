@@ -21,4 +21,14 @@ class Ticket < ActiveRecord::Base
   belongs_to :employee, :class_name => "Employee"
   has_many :histories
   belongs_to :ticket_queue 
+  
+  scoped_search :on => :summary
+  scoped_search :on => :ticket_type
+  scoped_search :on => :updated_at
+  scoped_search :on => :created_at
+  scoped_search :in => :histories, :on => :body
+  scoped_search :in => :histories, :on => :created_at
+  scoped_search :in => :histories, :on => :updated_at
+  
+  
 end

@@ -1,0 +1,7 @@
+<% if @results != nil %>
+  <% @results.each do |ticket| %>
+    <%=link_to ticket.summary, ticket_path(ticket.id) %><br />
+  <% end%>
+<% end %>
+
+
