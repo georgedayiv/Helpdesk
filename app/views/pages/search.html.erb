@@ -1,7 +1,18 @@
-<% if @results != nil %>
-  <% @results.each do |ticket| %>
-    <%=link_to ticket.summary, ticket_path(ticket.id) %><br />
-  <% end%>
+<% if @results != [] %>
+  <h2>Search results:</h2>
+  <ol>
+    <% @results.each do |ticket| %>
+      <li><%=link_to ticket.summary, ticket_path(ticket.id) %><br /></li>
+    <% end%>
+  </ol>
+<% else %>
+ <p>Sorry no, couldn't find anything. want to try again?</p>
 <% end %>
 
+<p>New Search?:
+<% form_tag(search_path, :method =>"get") do %>
+    <%= text_field_tag(:q)%>
+    <%= submit_tag("Search")%>
+  <% end %>
+</p>
 

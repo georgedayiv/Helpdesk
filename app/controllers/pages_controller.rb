@@ -21,11 +21,6 @@ class PagesController < ApplicationController
   
  def search
   @results = Ticket.search_for(params[:q])
-  
-    #  respond_to do |format|
-    #  format.html { redirect_to(search_path) }
-    #  format.xml  { head :ok }
-  #end
  end
  
 

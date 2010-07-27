@@ -12,7 +12,7 @@
 	<li><%= link_to 'Queues', ticket_queues_path%></li>
     </ul>
 
-<h1>Search</h1>
+<h3>Search</h3>
 <% form_tag(search_path, :method =>"get") do %>
   <%= text_field_tag(:q)%>
   <%= submit_tag("Search")%>
